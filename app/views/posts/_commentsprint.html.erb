@@ -1,0 +1,24 @@
+<h2>Comments</h2>
+<div class="row">
+	<% @post.comments.each do |comment| %>
+		<p>
+		<div class="col-md-8">
+		<b>Commenter:</b>
+		<%= comment.commenter %>
+		</p>
+		<p>
+		<b>Comment:</b>
+		<%= comment.body %> <%= comment.created_at %>
+		</p>
+		<b>Likes: </b>	
+		<%= comment.likes.count %>
+		</div>
+		<div class="col-md-4">
+		<p> If you like this, sign your name! </p>	
+		
+		<%= render 'like', {:comment => comment } %>
+
+		</div>
+		<% end %>   
+
+</div>
